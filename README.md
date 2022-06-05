@@ -6,6 +6,8 @@ I have not added the authontication token here since when I apply it to my appli
 The steps that I followed to add the authentication are:
  1) adding the authentication blugin using composer.
  2) adding authentication in View/Application.php
+ 
+ 
    //authentication
   use Authentication\AuthenticationService;
   use Authentication\AuthenticationServiceInterface;
@@ -97,6 +99,8 @@ The steps that I followed to add the authentication are:
     }
     
  3) adding a login method in UsersController.php
+
+
      public function login()
     {
         $this->request->allowMethod(['get', 'post']);
@@ -112,6 +116,8 @@ The steps that I followed to add the authentication are:
     }
     
 4) adding the authontication combonant in AppController.php
+
+
  
    public function initialize(): void
     {
