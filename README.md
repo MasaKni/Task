@@ -85,13 +85,9 @@ The steps that I followed to add the authentication are:
             // `new RoutingMiddleware($this, '_cake_routes_')`
             ->add(new RoutingMiddleware($this))
 
-            // Parse various types of encoded request bodies so that they are
-            // available as array through $request->getData()
-            // https://book.cakephp.org/4/en/controllers/middleware.html#body-parser-middleware
             ->add(new BodyParserMiddleware())
- ->add(new AuthenticationMiddleware($this))
-            // Cross Site Request Forgery (CSRF) Protection Middleware
-            // https://book.cakephp.org/4/en/controllers/middleware.html#cross-site-request-forgery-csrf-middleware
+            ->add(new AuthenticationMiddleware($this))
+            
             ->add(new CsrfProtectionMiddleware([
                 'httponly' => true,
             ]));
@@ -100,8 +96,7 @@ The steps that I followed to add the authentication are:
     }
     }
     
- 3
- 4) ) adding a login method in UsersController.php
+ 3) adding a login method in UsersController.php
      public function login()
     {
         $this->request->allowMethod(['get', 'post']);
