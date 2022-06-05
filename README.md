@@ -111,7 +111,8 @@ The steps that I followed to add the authentication are:
                    
     }
     
- 4)adding the authontication combonant in AppController.php
+4) adding the authontication combonant in AppController.php
+ 
    public function initialize(): void
     {
         parent::initialize();
@@ -124,7 +125,8 @@ The steps that I followed to add the authentication are:
         $this->Authentication->allowUnauthenticated(['login']);
     }
     
-    5) adding a Template for login
+5) adding a Template for login
+    
     <div class="users form content">
     <?= $this->Form->create() ?>
     <fieldset>
