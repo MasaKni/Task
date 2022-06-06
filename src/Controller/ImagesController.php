@@ -29,7 +29,6 @@ class ImagesController extends AppController
             if (is_numeric($height)&& is_numeric($width)) {
                 $query= $this->Images->find('all')
                                      ->where(['And'=>['Images.width like'=>$width,'Images.height like'=>$height]]);
-                                     
             } else {
                 $query = $this->Images;
                 $this->Flash->error(__('Please Enter a numeric value widthXheight'));
@@ -73,24 +72,28 @@ class ImagesController extends AppController
                 $Path = $this->request->getData('file_input');
                 $width = $this->request->getData('width');
                 $height = $this->request->getData('height');
-                // $type  = $Path->getClientMediaType();
-                $name  = $Path->getClientFilename();
-                // $image_info = getimagesize($Path);
-                // echo ($image_info);
-                // exit();
-                // if ($image_info[0]> $width ||$image_info[1]> $height)
-                // {}
-                if (!is_dir(WWW_ROOT.'img')) {
-                    mkdir(WWW_ROOT.'img', 0775);
-                }
+                $type  = $Path->getClientMediaType();
+                if ($type== 'image/jpeg' || $type == 'image/jpg' || $type == 'image/png') {
+                    $name  = $Path->getClientFilename();
+                    // $image_info = getimagesize($Path);
+                    // echo ($image_info);
+                    // exit();
+                    // if ($image_info[0]> $width ||$image_info[1]> $height)
+                    // {}
+                    if (!is_dir(WWW_ROOT.'img')) {
+                        mkdir(WWW_ROOT.'img', 0775);
+                    }
                     
-                $targetPath = WWW_ROOT.'img'.DS.DS.$name;
+                    $targetPath = WWW_ROOT.'img'.DS.DS.$name;
     
-                if ($name) {
-                    $Path->moveTo($targetPath);
-                }
+                    if ($name) {
+                        $Path->moveTo($targetPath);
+                    }
                     
-                $image->file_input= 'img/'.$name;
+                    $image->file_input= $name;
+                } else {
+                    $this->Flash->error(__('Wrong type of file uploaded.'));
+                }
             }
             if ($this->Images->save($image)) {
                 $this->Flash->success(__('The image has been saved.'));

@@ -17,7 +17,7 @@
             <fieldset>
                 <legend><?= __('Add Image') ?></legend>
                 <?php
-                    echo $this->Form->control('left');
+                    echo $this->Form->control('leftt');
                     echo $this->Form->control('topp');
                     echo $this->Form->control('width');
                     echo $this->Form->control('height');

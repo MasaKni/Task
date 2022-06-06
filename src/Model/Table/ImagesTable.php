@@ -51,9 +51,9 @@ class ImagesTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('left')
-            ->requirePresence('left', 'create')
-            ->notEmptyString('left');
+            ->integer('leftt')
+            ->requirePresence('leftt', 'create')
+            ->notEmptyString('leftt');
 
         $validator
             ->integer('topp')
@@ -75,13 +75,13 @@ class ImagesTable extends Table
             ->maxLength('file_input', 500)
             ->requirePresence('file_input', 'create')
             ->notEmptyFile('file_input')
-            ->add( 'file_input', [
+            ->add('file_input', [
             'file_input' => [
                 // 'rule' => array('extension', array('jpg','png','jpeg')),
                 'rule' => [ 'MimeType', [ 'image/jpg', 'image/png', 'image/jpeg' ] ],
                 'message' => 'Please upload only jpg and png.',
             ]
-        ] );
+        ]);
         // $validator
         // ->'key';
 

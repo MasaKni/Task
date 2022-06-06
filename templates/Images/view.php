@@ -26,8 +26,8 @@
                     <td><?= $this->Number->format($image->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Left') ?></th>
-                    <td><?= $this->Number->format($image->left) ?></td>
+                    <th><?= __('Leftt') ?></th>
+                    <td><?= $this->Number->format($image->leftt) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Top') ?></th>

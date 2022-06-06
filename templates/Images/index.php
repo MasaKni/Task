@@ -18,7 +18,7 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('left') ?></th>
+                    <th><?= $this->Paginator->sort('leftt') ?></th>
                     <th><?= $this->Paginator->sort('topp') ?></th>
                     <th><?= $this->Paginator->sort('width') ?></th>
                     <th><?= $this->Paginator->sort('height') ?></th>
@@ -30,7 +30,7 @@
                 <?php foreach ($images as $image): ?>
                 <tr>
                     <td><?= $this->Number->format($image->id) ?></td>
-                    <td><?= $this->Number->format($image->left) ?></td>
+                    <td><?= $this->Number->format($image->leftt) ?></td>
                     <td><?= $this->Number->format($image->topp) ?></td>
                     <td><?= $this->Number->format($image->width) ?></td>
                     <td><?= $this->Number->format($image->height) ?></td>

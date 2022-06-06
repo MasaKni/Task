@@ -40,7 +40,6 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('user_id');
         $this->setPrimaryKey('user_id');
-        
     }
 
     /**
@@ -61,12 +60,12 @@ class UsersTable extends Table
             ->maxLength('password', 255)
             ->requirePresence('password', 'create')
             ->notEmptyString('password')
-            ->sameAs('password_Conformation','password', 'Passwords Do Not Match')
-            ->add( 'password', [
+            ->sameAs('password_Conformation', 'password', 'Passwords Do Not Match')
+            ->add('password', [
             'password' => [
             'rule' =>array('custom','(^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]*).{8,}$)'),
             'message' => 'Password should contain: 8 characters, 1 upper case, 1 digit',
-             ]] );
+             ]]);
         return $validator;
     }
 

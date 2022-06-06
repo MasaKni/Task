@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5739b9d0aabddaafcdcaf1d09f194167",
+    "content-hash": "addd75825cc75e6186caf8c14033cd9e",
     "packages": [
         {
             "name": "cakephp/authentication",
@@ -4532,6 +4532,43 @@
                 }
             ],
             "time": "2022-02-11T10:27:51+00:00"
+        },
+        {
+            "name": "rshop/php-cs-fixer-config",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/riesenia/php-cs-fixer-config.git",
+                "reference": "ecc944d9f49644210f5208ba2d6087428c09c968"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/riesenia/php-cs-fixer-config/zipball/ecc944d9f49644210f5208ba2d6087428c09c968",
+                "reference": "ecc944d9f49644210f5208ba2d6087428c09c968",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Rshop\\CS\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomas Saghy",
+                    "email": "segy@riesenia.com"
+                }
+            ],
+            "description": "Provides a configuration for friendsofphp/php-cs-fixer",
+            "support": {
+                "issues": "https://github.com/riesenia/php-cs-fixer-config/issues",
+                "source": "https://github.com/riesenia/php-cs-fixer-config/tree/v3.0.0"
+            },
+            "time": "2022-06-01T07:58:49+00:00"
         },
         {
             "name": "sebastian/cli-parser",

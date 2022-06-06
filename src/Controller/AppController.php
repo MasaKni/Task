@@ -50,6 +50,5 @@ class AppController extends Controller
          */
         //$this->loadComponent('FormProtection');
     }
-      // using it's second constructor argument:
-  
+    // using it's second constructor argument:
 }
