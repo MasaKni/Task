@@ -35,7 +35,7 @@
                     <td><?= $this->Number->format($image->width) ?></td>
                     <td><?= $this->Number->format($image->height) ?></td>
                     <!-- <td><?= h($image->file_input) ?></td> -->
-                    <td><?= @$this->Html->image($image->file_input, ['style' => 'max-width:50px;height:50px;border-radius:50%;']) ?></td>
+                    <td><?= @$this->Html->image($image->file_input, ['style' => 'max-width:100px;height:100px;']) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $image->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $image->id], ['confirm' => __('Are you sure you want to delete # {0}?', $image->id)]) ?>

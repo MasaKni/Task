@@ -72,20 +72,18 @@ class ImagesController extends AppController
 
         if ($this->request->is('post')) {
             $image = $this->Images->patchEntity($image, $this->request->getData());
+            $resizedWidth = $this->request->getData('width');
+            $resizedHeight = $this->request->getData('height');
+            $resizedX = $this->request->getData('leftt');
+            $resizedY = $this->request->getData('topp');
 
             if (!$image->getErrors) {
                 $Path = $this->request->getData('file_input');
-                $width = $this->request->getData('width');
-                $height = $this->request->getData('height');
                 $type = $Path->getClientMediaType();
 
                 if ($type == 'image/jpeg' || $type == 'image/jpg' || $type == 'image/png') {
                     $name = $Path->getClientFilename();
-                    // $image_info = getimagesize($Path);
-                    // echo ($image_info);
-                    // exit();
-                    // if ($image_info[0]> $width ||$image_info[1]> $height)
-                    // {}
+
                     if (!\is_dir(WWW_ROOT . 'img')) {
                         \mkdir(WWW_ROOT . 'img', 0775);
                     }
@@ -95,6 +93,34 @@ class ImagesController extends AppController
                     if ($name) {
                         $Path->moveTo($targetPath);
                     }
+
+                    $image_info = \getimagesize('img/' . $name);
+
+                    if ($image_info[0] < $resizedWidth || $image_info[1] < $resizedHeight) {
+                        $this->Flash->error(\__('The resizing height and width must be smaller than the original image size. Width smaller than ' . $image_info[0] . 'and Height smaller than ' . $image_info[1]));
+
+                        return $this->redirect(['action' => 'add']);
+                    }
+
+                    // if (!\is_dir(WWW_ROOT . 'img'. DS.'resize')) {
+                    //     \mkdir(WWW_ROOT . 'img'. DS.'resize', 0775);
+                    // }
+
+                    $normal = \imagecreatefromjpeg('img/' . $name);
+                    $reImg = \imagecreatetruecolor((int) $resizedWidth, (int) $resizedHeight);
+                    \imagecopyresampled(
+                        $reImg,
+                        $normal,
+                        0,
+                        0,
+                        (int) $resizedX,
+                        (int) $resizedY,
+                        (int) $resizedWidth,
+                        (int) $resizedHeight,
+                        (int) $image_info[0],
+                        (int) $image_info[1]
+                    );
+                    \imagejpeg($reImg, 'img/' . $name);
 
                     $image->file_input = $name;
                 } else {
