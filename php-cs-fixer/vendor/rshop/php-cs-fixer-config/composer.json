@@ -1,0 +1,16 @@
+{
+    "name": "rshop/php-cs-fixer-config",
+    "description": "Provides a configuration for friendsofphp/php-cs-fixer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomas Saghy",
+            "email": "segy@riesenia.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Rshop\\CS\\Config\\": "src/"
+        }
+    }
+}

@@ -1,18 +1,18 @@
 <?php
-declare(strict_types=1);
 
+declare(strict_types=1);
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 
 /**
- * Image Entity
+ * Image Entity.
  *
- * @property int $id
- * @property int $left
- * @property int $topp
- * @property int $width
- * @property int $height
+ * @property int    $id
+ * @property int    $left
+ * @property int    $topp
+ * @property int    $width
+ * @property int    $height
  * @property string $file_input
  */
 class Image extends Entity
